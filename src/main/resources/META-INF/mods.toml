@@ -1,0 +1,32 @@
+modLoader="javafml"
+loaderVersion="[40,)"
+license="MIT License"
+#issueTrackerURL=""
+
+[[mods]]
+modId="cutehermitcrabs"
+version="1.18.2-2.0.0"
+displayName="Cute Hermit Crabs"
+#updateJSONURL=""
+#displayURL=""
+logoFile="logo.png"
+logoBlur=false
+#credits=""
+authors="Sv3r"
+description=""
+#itemIcon=""
+#configBackground=""
+
+[[dependencies.cutehermitcrabs]]
+    modId="forge"
+    mandatory=true
+    versionRange="[40.0.0,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.cutehermitcrabs]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.18.2]"
+    ordering="NONE"
+    side="BOTH"

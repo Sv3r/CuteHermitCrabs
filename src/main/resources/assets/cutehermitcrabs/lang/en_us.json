@@ -1,0 +1,16 @@
+{
+  "item.cutehermitcrabs.hermit_crab_shell_piece": "Hermit Crab Shell Piece",
+  "item.cutehermitcrabs.hermit_crab_shell": "Hermit Crab Shell",
+  "item.cutehermitcrabs.hermit_crab_spawn_egg": "Hermit Crab Spawn Egg",
+  "item.cutehermitcrabs.bucket_of_hermit_crab": "Bucket of Hermit Crab",
+
+  "item.cutehermitcrabs.raw_hermit_crab": "Raw Hermit Crab",
+  "item.cutehermitcrabs.cooked_hermit_crab": "Cooked Hermit Crab",
+
+  "itemGroup.cute_hermit_crabs_tab": "Cute Hermit Crabs",
+
+  "item.modifiers.sneaking": "When Sneaking:",
+  "attribute.modifier.plus": "+",
+
+  "sounds.cutehermitcrabs.hermit_crab_hurt": "Hermit Crab hurts"
+}

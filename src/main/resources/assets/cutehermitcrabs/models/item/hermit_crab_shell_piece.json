@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "cutehermitcrabs:item/hermit_crab_shell_piece"
+  }
+}

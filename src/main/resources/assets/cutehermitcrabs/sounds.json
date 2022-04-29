@@ -1,0 +1,9 @@
+{
+  "hermit_crab_hurt": {
+    "subtitle": "sounds.cutehermitcrabs.hermit_crab_hurt",
+    "sounds": [
+      "cutehermitcrabs:hermit_crab_hurt_01",
+      "cutehermitcrabs:hermit_crab_hurt_02"
+    ]
+  }
+}
