@@ -1,2 +1,1 @@
-# CuteHermitCrabs
- A Minecraft Forge mod about hermit crabs.
+![](https://i.imgur.com/LB6JOmJ.png)
