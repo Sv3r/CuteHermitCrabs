@@ -1,14 +1,14 @@
 modLoader="javafml"
 loaderVersion="[40,)"
 license="MIT License"
-#issueTrackerURL=""
+issueTrackerURL="https://github.com/Sv3r/CuteHermitCrabs/issues"
 
 [[mods]]
 modId="cutehermitcrabs"
 version="1.18.2-2.0.0"
 displayName="Cute Hermit Crabs"
 #updateJSONURL=""
-#displayURL=""
+displayURL="https://github.com/Sv3r/CuteHermitCrabs"
 logoFile="logo.png"
 logoBlur=false
 #credits=""
