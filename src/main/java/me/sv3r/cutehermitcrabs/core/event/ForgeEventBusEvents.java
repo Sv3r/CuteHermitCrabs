@@ -11,12 +11,12 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = CuteHermitCrabs.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
-public class ModForgeEvents {
+public class ForgeEventBusEvents {
+
     @SubscribeEvent(priority = EventPriority.HIGHEST)
-    public static void onBiomeLoadingEvent(BiomeLoadingEvent event) {
+    public static void biomeLoadingEvent(BiomeLoadingEvent event) {
         if(event.getName().equals(new ResourceLocation("minecraft:beach"))) {
-            event.getSpawns().addSpawn(MobCategory.CREATURE,
-                    new MobSpawnSettings.SpawnerData(ModEntityTypes.HERMIT_CRAB.get(), 10, 2, 6));
+            event.getSpawns().addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ModEntityTypes.HERMIT_CRAB.get(), 10, 2, 6));
         }
     }
 }

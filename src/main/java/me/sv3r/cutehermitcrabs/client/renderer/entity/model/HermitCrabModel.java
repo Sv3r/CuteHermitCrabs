@@ -64,19 +64,21 @@ public class HermitCrabModel<T extends HermitCrabEntity> extends AgeableListMode
     public static LayerDefinition createBodyLayer() {
         MeshDefinition meshdefinition = new MeshDefinition();
         PartDefinition partdefinition = meshdefinition.getRoot();
-        PartDefinition shell = partdefinition.addOrReplaceChild("shell", CubeListBuilder.create().texOffs(0, 0).addBox(-3.5F, -5.0F, -3.5F, 7.0F, 7.0F, 7.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 20.5F, 2.0F));
-        PartDefinition left_back_leg = partdefinition.addOrReplaceChild("left_back_leg", CubeListBuilder.create().texOffs(18, 14).mirror().addBox(0.0F, -0.5F, -0.5F, 4.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(2.5F, 22.5F, 2.5F, 0.0F, 0.0F, 0.0F));
-        PartDefinition left_middle_leg = partdefinition.addOrReplaceChild("left_middle_leg", CubeListBuilder.create().texOffs(18, 14).mirror().addBox(0.0F, -0.5F, -0.5F, 4.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(2.5F, 22.5F, 0.5F));
-        PartDefinition left_front_leg = partdefinition.addOrReplaceChild("left_front_leg", CubeListBuilder.create().texOffs(18, 14).mirror().addBox(0.0F, -0.5F, -0.5F, 4.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(2.5F, 22.5F, -1.5F));
-        PartDefinition right_back_leg = partdefinition.addOrReplaceChild("right_back_leg", CubeListBuilder.create().texOffs(18, 14).addBox(-4.0F, -0.5F, -0.5F, 4.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offset(-2.5F, 22.5F, 2.5F));
-        PartDefinition right_middle_leg = partdefinition.addOrReplaceChild("right_middle_leg", CubeListBuilder.create().texOffs(18, 14).addBox(-4.0F, -0.5F, -0.5F, 4.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offset(-2.5F, 22.5F, 0.5F));
-        PartDefinition right_front_leg = partdefinition.addOrReplaceChild("right_front_leg", CubeListBuilder.create().texOffs(18, 14).addBox(-4.0F, -0.5F, -0.5F, 4.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offset(-2.5F, 22.5F, -1.5F));
-        PartDefinition left_claw = partdefinition.addOrReplaceChild("left_claw", CubeListBuilder.create(), PartPose.offset(2.0F, 22.0F, -4.0F));
-        PartDefinition left_claw_r1 = left_claw.addOrReplaceChild("left_claw_r1", CubeListBuilder.create().texOffs(21, 0).mirror().addBox(-1.0F, -1.0F, -1.5F, 2.0F, 2.0F, 3.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 0.0F, -1.5F, 0.0F, 0.0F, 0.0F));
-        PartDefinition right_claw = partdefinition.addOrReplaceChild("right_claw", CubeListBuilder.create().texOffs(21, 0).addBox(-1.0F, -1.0F, -3.0F, 2.0F, 2.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offset(-2.0F, 22.0F, -4.0F));
-        PartDefinition body = partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 14).addBox(-2.5F, -1.5F, -4.0F, 5.0F, 3.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 22.0F, 0.0F));
-        PartDefinition left_eye = partdefinition.addOrReplaceChild("left_eye", CubeListBuilder.create().texOffs(0, 14).addBox(-0.5F, -4.0F, -0.5F, 1.0F, 5.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offset(1.0F, 20.5F, -3.0F));
-        PartDefinition right_eye = partdefinition.addOrReplaceChild("right_eye", CubeListBuilder.create().texOffs(0, 14).mirror().addBox(-0.5F, -4.0F, -0.5F, 1.0F, 5.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-1.0F, 20.5F, -3.0F));
+
+        partdefinition.addOrReplaceChild("shell", CubeListBuilder.create().texOffs(0, 0).addBox(-3.5F, -5.0F, -3.5F, 7.0F, 7.0F, 7.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 20.5F, 2.0F));
+        partdefinition.addOrReplaceChild("left_back_leg", CubeListBuilder.create().texOffs(18, 14).mirror().addBox(0.0F, -0.5F, -0.5F, 4.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(2.5F, 22.5F, 2.5F, 0.0F, 0.0F, 0.0F));
+        partdefinition.addOrReplaceChild("left_middle_leg", CubeListBuilder.create().texOffs(18, 14).mirror().addBox(0.0F, -0.5F, -0.5F, 4.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(2.5F, 22.5F, 0.5F));
+        partdefinition.addOrReplaceChild("left_front_leg", CubeListBuilder.create().texOffs(18, 14).mirror().addBox(0.0F, -0.5F, -0.5F, 4.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(2.5F, 22.5F, -1.5F));
+        partdefinition.addOrReplaceChild("right_back_leg", CubeListBuilder.create().texOffs(18, 14).addBox(-4.0F, -0.5F, -0.5F, 4.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offset(-2.5F, 22.5F, 2.5F));
+        partdefinition.addOrReplaceChild("right_middle_leg", CubeListBuilder.create().texOffs(18, 14).addBox(-4.0F, -0.5F, -0.5F, 4.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offset(-2.5F, 22.5F, 0.5F));
+        partdefinition.addOrReplaceChild("right_front_leg", CubeListBuilder.create().texOffs(18, 14).addBox(-4.0F, -0.5F, -0.5F, 4.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offset(-2.5F, 22.5F, -1.5F));
+        partdefinition.addOrReplaceChild("left_claw", CubeListBuilder.create(), PartPose.offset(2.0F, 22.0F, -4.0F));
+        partdefinition.getChild("left_claw").addOrReplaceChild("left_claw_r1", CubeListBuilder.create().texOffs(21, 0).mirror().addBox(-1.0F, -1.0F, -1.5F, 2.0F, 2.0F, 3.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(0.0F, 0.0F, -1.5F, 0.0F, 0.0F, 0.0F));
+        partdefinition.addOrReplaceChild("right_claw", CubeListBuilder.create().texOffs(21, 0).addBox(-1.0F, -1.0F, -3.0F, 2.0F, 2.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offset(-2.0F, 22.0F, -4.0F));
+        partdefinition.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 14).addBox(-2.5F, -1.5F, -4.0F, 5.0F, 3.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 22.0F, 0.0F));
+        partdefinition.addOrReplaceChild("left_eye", CubeListBuilder.create().texOffs(0, 14).addBox(-0.5F, -4.0F, -0.5F, 1.0F, 5.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offset(1.0F, 20.5F, -3.0F));
+        partdefinition.addOrReplaceChild("right_eye", CubeListBuilder.create().texOffs(0, 14).mirror().addBox(-0.5F, -4.0F, -0.5F, 1.0F, 5.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-1.0F, 20.5F, -3.0F));
+
         return LayerDefinition.create(meshdefinition, 64, 64);
     }
 
@@ -136,38 +138,49 @@ public class HermitCrabModel<T extends HermitCrabEntity> extends AgeableListMode
         this.right_back_leg.yRot += f6;
     }
 
-    public void renderToBuffer(PoseStack pPoseStack, VertexConsumer pBuffer, int pPackedLight, int pPackedOverlay, float pRed, float pGreen, float pBlue, float pAlpha) {
+    @Override
+    public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
         if (this.young)
         {
             this.shell.visible = false;
-            pPoseStack.pushPose();
+
+            poseStack.pushPose();
+
             if (this.scaleHead) {
                 float f = 1.5F / this.babyHeadScale;
-                pPoseStack.scale(f, f, f);
+                poseStack.scale(f, f, f);
             }
 
-            pPoseStack.translate(0.0D, (double)(this.babyYHeadOffset / 16.0F), (double)(this.babyZHeadOffset / 16.0F));
-            this.headParts().forEach((modelPart) -> {
-                modelPart.render(pPoseStack, pBuffer, pPackedLight, pPackedOverlay, pRed, pGreen, pBlue, pAlpha);
+            poseStack.translate(0.0D, this.babyYHeadOffset / 16.0F, this.babyZHeadOffset / 16.0F);
+
+            this.headParts().forEach((part) -> {
+                part.render(poseStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
             });
-            pPoseStack.popPose();
-            pPoseStack.pushPose();
+
+            poseStack.popPose();
+            poseStack.pushPose();
+
             float f1 = 1.0F / this.babyBodyScale;
-            pPoseStack.scale(f1, f1, f1);
-            pPoseStack.translate(0.0D, (double)(this.bodyYOffset / 16.0F), 0.0D);
-            this.bodyParts().forEach((modelPart) -> {
-                modelPart.render(pPoseStack, pBuffer, pPackedLight, pPackedOverlay, pRed, pGreen, pBlue, pAlpha);
+
+            poseStack.scale(f1, f1, f1);
+            poseStack.translate(0.0D, (double)(this.bodyYOffset / 16.0F), 0.0D);
+
+            this.bodyParts().forEach((part) -> {
+                part.render(poseStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
             });
-            pPoseStack.popPose();
+
+            poseStack.popPose();
         }
         else
         {
             this.shell.visible = true;
-            this.headParts().forEach((p_102061_) -> {
-                p_102061_.render(pPoseStack, pBuffer, pPackedLight, pPackedOverlay, pRed, pGreen, pBlue, pAlpha);
+
+            this.headParts().forEach((part) -> {
+                part.render(poseStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
             });
-            this.bodyParts().forEach((p_102051_) -> {
-                p_102051_.render(pPoseStack, pBuffer, pPackedLight, pPackedOverlay, pRed, pGreen, pBlue, pAlpha);
+
+            this.bodyParts().forEach((part) -> {
+                part.render(poseStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
             });
         }
     }

@@ -25,7 +25,7 @@ public enum ModArmorMaterials implements ArmorMaterial {
     private final float toughness;
     private final float knockbackResistance;
     private final LazyLoadedValue<Ingredient> repairIngredient;
-
+    
     ModArmorMaterials(String name, int durabilityMultiplier, int[] slotProtections, int enchantmentValue, SoundEvent sound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredient) {
         this.name = name;
         this.durabilityMultiplier = durabilityMultiplier;
@@ -37,32 +37,41 @@ public enum ModArmorMaterials implements ArmorMaterial {
         this.repairIngredient = new LazyLoadedValue<>(repairIngredient);
     }
 
+
+    @Override
     public int getDurabilityForSlot(EquipmentSlot equipmentSlot) {
         return HEALTH_PER_SLOT[equipmentSlot.getIndex()] * this.durabilityMultiplier;
     }
-
+    
+    @Override
     public int getDefenseForSlot(EquipmentSlot equipmentSlot) {
         return this.slotProtections[equipmentSlot.getIndex()];
     }
 
+    @Override
     public int getEnchantmentValue() {
         return this.enchantmentValue;
     }
 
+    @Override
     public SoundEvent getEquipSound() {
         return this.sound;
     }
 
+    @Override
     public Ingredient getRepairIngredient() { return this.repairIngredient.get(); }
 
+    @Override
     public String getName() {
         return CuteHermitCrabs.MOD_ID + ":" + this.name;
     }
 
+    @Override
     public float getToughness() {
         return this.toughness;
     }
 
+    @Override
     public float getKnockbackResistance() {
         return this.knockbackResistance;
     }

@@ -10,11 +10,14 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class ModEntityTypes {
+
     // EntityType Registry
-    public static DeferredRegister<EntityType<?>> REGISTRY = DeferredRegister.create(ForgeRegistries.ENTITIES, CuteHermitCrabs.MOD_ID);
+    public static DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITIES, CuteHermitCrabs.MOD_ID);
 
     // Water Creatures
-    public static final RegistryObject<EntityType<HermitCrabEntity>> HERMIT_CRAB = REGISTRY.register("hermit_crab",
-            () -> EntityType.Builder.of(HermitCrabEntity::new, MobCategory.WATER_CREATURE).sized(0.5f, 0.5f)
-                    .build(new ResourceLocation(CuteHermitCrabs.MOD_ID, "hermit_crab").toString()));
+    public static final RegistryObject<EntityType<HermitCrabEntity>> HERMIT_CRAB = ENTITIES.register("hermit_crab", () -> (
+            EntityType.Builder.of(HermitCrabEntity::new, MobCategory.WATER_CREATURE)
+                    .sized(0.5f, 0.5f)
+                    .build(new ResourceLocation(CuteHermitCrabs.MOD_ID, "hermit_crab").toString())
+    ));
 }

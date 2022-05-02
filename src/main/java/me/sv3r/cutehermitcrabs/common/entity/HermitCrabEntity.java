@@ -16,18 +16,12 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.AgeableMob;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.MobSpawnType;
-import net.minecraft.world.entity.ai.Brain;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
-import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.Bucketable;
-import net.minecraft.world.entity.animal.axolotl.Axolotl;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -46,23 +40,26 @@ public class HermitCrabEntity extends Animal implements Bucketable {
         super(entityType, level);
     }
 
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        this.entityData.define(FROM_BUCKET, false);
-    }
-
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 20.0D)
                 .add(Attributes.MOVEMENT_SPEED, 0.25D);
     }
 
+    @Override
     public void addAdditionalSaveData(CompoundTag compoundTag) {
         compoundTag.putBoolean("FromBucket", this.fromBucket());
     }
 
+    @Override
     public void readAdditionalSaveData(CompoundTag compoundTag) {
         this.setFromBucket(compoundTag.getBoolean("FromBucket"));
+    }
+
+    @Override
+    protected void defineSynchedData() {
+        super.defineSynchedData();
+        this.entityData.define(FROM_BUCKET, false);
     }
 
     @Override
@@ -97,12 +94,19 @@ public class HermitCrabEntity extends Animal implements Bucketable {
         return Mob.checkMobSpawnRules(entityType, levelAccessor, spawnType, blockPos, random);
     }
 
+    @Override
     public boolean canBreatheUnderwater() {
         return true;
     }
 
+    @Override
     public boolean isPushedByFluid() {
         return false;
+    }
+
+    @Override
+    public ItemStack getBucketItemStack() {
+        return new ItemStack(ModItems.BUCKET_OF_HERMIT_CRAB.get());
     }
 
     @Override
@@ -132,15 +136,6 @@ public class HermitCrabEntity extends Animal implements Bucketable {
     }
 
     @Override
-    public ItemStack getBucketItemStack() {
-        return new ItemStack(ModItems.BUCKET_OF_HERMIT_CRAB.get());
-    }
-
-    @Override
-    public SoundEvent getPickupSound() {
-        return SoundEvents.BUCKET_FILL_FISH;
-    }
-
     public InteractionResult mobInteract(Player player, InteractionHand interactionHand) {
         return Bucketable.bucketMobPickup(player, interactionHand, this).orElse(super.mobInteract(player, interactionHand));
     }
@@ -155,5 +150,10 @@ public class HermitCrabEntity extends Animal implements Bucketable {
     @Override
     protected SoundEvent getDeathSound() {
         return ModSounds.HERMIT_CRAB_HURT.get();
+    }
+
+    @Override
+    public SoundEvent getPickupSound() {
+        return SoundEvents.BUCKET_FILL_FISH;
     }
 }
