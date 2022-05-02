@@ -1,0 +1,16 @@
+{
+  "item.cutehermitcrabs.hermit_crab_shell_piece": "Heremietkrabben Schelp Stuk",
+  "item.cutehermitcrabs.hermit_crab_shell": "Heremietkrabben Schelp",
+  "item.cutehermitcrabs.hermit_crab_spawn_egg": "Heremietkrabbenspawnei",
+  "item.cutehermitcrabs.bucket_of_hermit_crab": "Emmer heremietkrab",
+
+  "item.cutehermitcrabs.raw_hermit_crab": "Rauwe heremietkrab",
+  "item.cutehermitcrabs.cooked_hermit_crab": "Gebakken heremietkrab",
+
+  "itemGroup.cute_hermit_crabs_tab": "Cute Hermit Crabs",
+
+  "item.modifiers.sneaking": "Wanneer aan het Sluipen:",
+  "attribute.modifier.plus": "+",
+
+  "sounds.cutehermitcrabs.hermit_crab_hurt": "Heremietkrab raakt gewond"
+}
