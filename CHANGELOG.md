@@ -7,4 +7,4 @@
 - Added nl_BE translation;
 
 ### Fixes
-- Fixed mod crashing on servers;
+- Fixed mod crashing servers;
