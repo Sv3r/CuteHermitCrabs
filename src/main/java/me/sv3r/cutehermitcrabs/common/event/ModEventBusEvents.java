@@ -1,10 +1,10 @@
-package me.sv3r.cutehermitcrabs.core.event;
+package me.sv3r.cutehermitcrabs.common.event;
 
 import me.sv3r.cutehermitcrabs.client.renderer.entity.HermitCrabRenderer;
 import me.sv3r.cutehermitcrabs.client.renderer.entity.model.HermitCrabModel;
 import me.sv3r.cutehermitcrabs.common.entity.HermitCrabEntity;
-import me.sv3r.cutehermitcrabs.core.CuteHermitCrabs;
-import me.sv3r.cutehermitcrabs.core.registry.ModEntityTypes;
+import me.sv3r.cutehermitcrabs.common.CuteHermitCrabs;
+import me.sv3r.cutehermitcrabs.common.registry.ModEntityTypes;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.level.levelgen.Heightmap;

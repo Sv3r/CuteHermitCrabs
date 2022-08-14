@@ -14,22 +14,29 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 
-public class HermitCrabShellItem extends ArmorItem {
-    public HermitCrabShellItem(ArmorMaterial material, EquipmentSlot slot, Properties properties) {
+@ParametersAreNonnullByDefault
+public class HermitCrabShellItem extends ArmorItem
+{
+    public HermitCrabShellItem(ArmorMaterial material, EquipmentSlot slot, Properties properties)
+    {
         super(material, slot, properties);
     }
 
     @Override
-    public void onArmorTick(ItemStack stack, Level world, Player player) {
-        if (player.isShiftKeyDown()) {
+    public void onArmorTick(ItemStack stack, Level world, Player player)
+    {
+        if (player.isShiftKeyDown())
+        {
             player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 10, 2, false, false, true));
         }
     }
 
     @Override
-    public void appendHoverText(ItemStack itemStack, @Nullable Level level, List<Component> tooltipComponents, TooltipFlag isAdvanced) {
+    public void appendHoverText(ItemStack itemStack, @Nullable Level level, List<Component> tooltipComponents, TooltipFlag isAdvanced)
+    {
         tooltipComponents.add(new TranslatableComponent("item.modifiers.sneaking").withStyle(ChatFormatting.GRAY));
         tooltipComponents.add(new TranslatableComponent("attribute.modifier.plus").withStyle(ChatFormatting.BLUE)
                 .append(new TranslatableComponent(MobEffects.DAMAGE_RESISTANCE.getDisplayName().getString()).withStyle(ChatFormatting.BLUE)).append(" ")

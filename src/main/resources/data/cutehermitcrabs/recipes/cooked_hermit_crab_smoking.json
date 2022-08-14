@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smoking",
+  "ingredient": {
+    "item": "cutehermitcrabs:raw_hermit_crab"
+  },
+  "result": "cutehermitcrabs:cooked_hermit_crab",
+  "experience": 0.40,
+  "cookingtime": 105
+}

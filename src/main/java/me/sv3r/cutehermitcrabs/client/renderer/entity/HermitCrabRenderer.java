@@ -2,7 +2,7 @@ package me.sv3r.cutehermitcrabs.client.renderer.entity;
 
 import me.sv3r.cutehermitcrabs.client.renderer.entity.model.HermitCrabModel;
 import me.sv3r.cutehermitcrabs.common.entity.HermitCrabEntity;
-import me.sv3r.cutehermitcrabs.core.CuteHermitCrabs;
+import me.sv3r.cutehermitcrabs.common.CuteHermitCrabs;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;

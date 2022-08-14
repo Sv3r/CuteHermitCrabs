@@ -1,7 +1,7 @@
 package me.sv3r.cutehermitcrabs.common.item;
 
-import me.sv3r.cutehermitcrabs.core.CuteHermitCrabs;
-import me.sv3r.cutehermitcrabs.core.registry.ModItems;
+import me.sv3r.cutehermitcrabs.common.CuteHermitCrabs;
+import me.sv3r.cutehermitcrabs.common.registry.ModItems;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.LazyLoadedValue;

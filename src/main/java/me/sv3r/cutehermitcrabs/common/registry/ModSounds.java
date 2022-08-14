@@ -1,6 +1,6 @@
-package me.sv3r.cutehermitcrabs.core.registry;
+package me.sv3r.cutehermitcrabs.common.registry;
 
-import me.sv3r.cutehermitcrabs.core.CuteHermitCrabs;
+import me.sv3r.cutehermitcrabs.common.CuteHermitCrabs;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraftforge.registries.DeferredRegister;

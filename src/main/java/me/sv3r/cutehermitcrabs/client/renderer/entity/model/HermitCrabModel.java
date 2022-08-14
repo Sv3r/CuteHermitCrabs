@@ -4,7 +4,7 @@ import com.google.common.collect.ImmutableList;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import me.sv3r.cutehermitcrabs.common.entity.HermitCrabEntity;
-import me.sv3r.cutehermitcrabs.core.CuteHermitCrabs;
+import me.sv3r.cutehermitcrabs.common.CuteHermitCrabs;
 import net.minecraft.client.model.AgeableListModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;

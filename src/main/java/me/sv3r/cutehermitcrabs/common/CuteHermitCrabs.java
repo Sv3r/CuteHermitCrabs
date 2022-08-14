@@ -1,19 +1,16 @@
-package me.sv3r.cutehermitcrabs.core;
+package me.sv3r.cutehermitcrabs.common;
 
-import me.sv3r.cutehermitcrabs.core.registry.ModEntityTypes;
-import me.sv3r.cutehermitcrabs.core.registry.ModItems;
-import me.sv3r.cutehermitcrabs.core.registry.ModSounds;
+import me.sv3r.cutehermitcrabs.common.registry.ModEntityTypes;
+import me.sv3r.cutehermitcrabs.common.registry.ModItems;
+import me.sv3r.cutehermitcrabs.common.registry.ModSounds;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 @Mod(CuteHermitCrabs.MOD_ID)
 public class CuteHermitCrabs
 {
-    private static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "cutehermitcrabs";
 
     public CuteHermitCrabs() {

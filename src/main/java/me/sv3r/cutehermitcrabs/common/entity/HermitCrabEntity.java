@@ -1,9 +1,10 @@
 package me.sv3r.cutehermitcrabs.common.entity;
 
-import me.sv3r.cutehermitcrabs.core.CuteHermitCrabs;
-import me.sv3r.cutehermitcrabs.core.registry.ModEntityTypes;
-import me.sv3r.cutehermitcrabs.core.registry.ModItems;
-import me.sv3r.cutehermitcrabs.core.registry.ModSounds;
+import me.sv3r.cutehermitcrabs.common.CuteHermitCrabs;
+import me.sv3r.cutehermitcrabs.common.registry.ModEntityTypes;
+import me.sv3r.cutehermitcrabs.common.registry.ModItems;
+import me.sv3r.cutehermitcrabs.common.registry.ModSounds;
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -30,8 +31,11 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import org.jetbrains.annotations.Nullable;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Random;
 
+@ParametersAreNonnullByDefault
+@MethodsReturnNonnullByDefault
 public class HermitCrabEntity extends Animal implements Bucketable {
     private static final Ingredient FOOD_ITEMS = Ingredient.of(Items.SEAGRASS, Items.KELP);
     private static final EntityDataAccessor<Boolean> FROM_BUCKET = SynchedEntityData.defineId(HermitCrabEntity.class, EntityDataSerializers.BOOLEAN);
