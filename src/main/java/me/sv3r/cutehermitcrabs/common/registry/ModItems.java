@@ -1,9 +1,9 @@
 package me.sv3r.cutehermitcrabs.common.registry;
 
 import me.sv3r.cutehermitcrabs.common.CuteHermitCrabs;
+import me.sv3r.cutehermitcrabs.common.ModCreativeModeTab;
 import me.sv3r.cutehermitcrabs.common.item.HermitCrabShellItem;
 import me.sv3r.cutehermitcrabs.common.item.ModArmorMaterials;
-import me.sv3r.cutehermitcrabs.common.ModCreativeModeTab;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.Item;
@@ -14,7 +14,8 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-public class ModItems {
+public class ModItems
+{
 
     // Item Registry
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, CuteHermitCrabs.MOD_ID);
@@ -43,11 +44,11 @@ public class ModItems {
 
     // Foods
     public static final RegistryObject<Item> RAW_HERMIT_CRAB = ITEMS.register("raw_hermit_crab", () -> (
-            new Item(new Item.Properties().food(FoodValues.RAW_HERMIT_CRAB)
+            new Item(new Item.Properties().food(ModFoodValues.RAW_HERMIT_CRAB)
                     .tab(ModCreativeModeTab.TAB))
     ));
     public static final RegistryObject<Item> COOKED_HERMIT_CRAB = ITEMS.register("cooked_hermit_crab", () -> (
-            new Item(new Item.Properties().food(FoodValues.COOKED_HERMIT_CRAB)
+            new Item(new Item.Properties().food(ModFoodValues.COOKED_HERMIT_CRAB)
                     .tab(ModCreativeModeTab.TAB))
     ));
 }
