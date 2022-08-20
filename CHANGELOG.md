@@ -1,15 +1,7 @@
 # Changelog
 
-## 2.0.2
+## 3.0.0
 
-### Fixes
-- Fixed smelter not being able to cook raw hermit crab;
+### Updates
 
-## 2.0.1
-
-### Additions
-- Added nl_NL translation;
-- Added nl_BE translation;
-
-### Fixes
-- Fixed mod crashing servers;
+- Updated to 1.19-1.19.2;

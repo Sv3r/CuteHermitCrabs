@@ -1,32 +1,32 @@
-modLoader="javafml"
-loaderVersion="[40,)"
-license="MIT License"
-issueTrackerURL="https://github.com/Sv3r/CuteHermitCrabs/issues"
+modLoader = "javafml"
+loaderVersion = "[40,)"
+license = "MIT License"
+issueTrackerURL = "https://github.com/Sv3r/CuteHermitCrabs/issues"
 
 [[mods]]
-modId="cutehermitcrabs"
-version="1.18.2-2.0.2"
-displayName="Cute Hermit Crabs"
+modId = "cutehermitcrabs"
+version = "1.19-3.0.0"
+displayName = "Cute Hermit Crabs"
 #updateJSONURL=""
-displayURL="https://github.com/Sv3r/CuteHermitCrabs"
-logoFile="logo.png"
-logoBlur=false
+displayURL = "https://github.com/Sv3r/CuteHermitCrabs"
+logoFile = "logo.png"
+logoBlur = false
 #credits=""
-authors="Sv3r"
-description=""
+authors = "Sv3r"
+description = ""
 #itemIcon=""
 #configBackground=""
 
 [[dependencies.cutehermitcrabs]]
-    modId="forge"
-    mandatory=true
-    versionRange="[40.0.0,)"
-    ordering="NONE"
-    side="BOTH"
+modId = "forge"
+mandatory = true
+versionRange = "[40,)"
+ordering = "NONE"
+side = "BOTH"
 
 [[dependencies.cutehermitcrabs]]
-    modId="minecraft"
-    mandatory=true
-    versionRange="[1.18.2]"
-    ordering="NONE"
-    side="BOTH"
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.18.2,1.20)"
+ordering = "NONE"
+side = "BOTH"

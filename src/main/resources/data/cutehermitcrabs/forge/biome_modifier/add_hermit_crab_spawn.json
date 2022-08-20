@@ -1,0 +1,6 @@
+{
+  "type": "cutehermitcrabs:entity_spawn",
+  "entityType": "cutehermitcrabs:hermit_crab",
+  "spawnableBiomes": "#cutehermitcrabs:hermit_crab_spawnable_biomes",
+  "unspawnableBiomes": "#cutehermitcrabs:hermit_crab_unspawnable_biomes"
+}

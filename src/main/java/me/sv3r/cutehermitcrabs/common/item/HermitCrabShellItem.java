@@ -1,8 +1,8 @@
 package me.sv3r.cutehermitcrabs.common.item;
 
+import me.sv3r.cutehermitcrabs.common.config.CHCConfig;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -30,17 +30,17 @@ public class HermitCrabShellItem extends ArmorItem
     {
         if (player.isShiftKeyDown())
         {
-            player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 10, 2, false, false, true));
+            player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 10, CHCConfig.RESISTANCE_LEVEL.get() - 1, false, false, true));
         }
     }
 
     @Override
     public void appendHoverText(ItemStack itemStack, @Nullable Level level, List<Component> tooltipComponents, TooltipFlag isAdvanced)
     {
-        tooltipComponents.add(new TranslatableComponent("item.modifiers.sneaking").withStyle(ChatFormatting.GRAY));
-        tooltipComponents.add(new TranslatableComponent("attribute.modifier.plus").withStyle(ChatFormatting.BLUE)
-                .append(new TranslatableComponent(MobEffects.DAMAGE_RESISTANCE.getDisplayName().getString()).withStyle(ChatFormatting.BLUE)).append(" ")
-                .append(new TranslatableComponent("potion.potency.2")).withStyle(ChatFormatting.BLUE));
+        tooltipComponents.add(Component.translatable("item.modifiers.sneaking").withStyle(ChatFormatting.GRAY));
+        tooltipComponents.add(Component.translatable("attribute.modifier.plus").withStyle(ChatFormatting.BLUE)
+                .append(Component.translatable(MobEffects.DAMAGE_RESISTANCE.getDisplayName().getString()).withStyle(ChatFormatting.BLUE)).append(" ")
+                .append(Component.translatable("potion.potency." + (CHCConfig.RESISTANCE_LEVEL.get() - 1))).withStyle(ChatFormatting.BLUE));
 
         super.appendHoverText(itemStack, level, tooltipComponents, isAdvanced);
     }

@@ -3,8 +3,8 @@ package me.sv3r.cutehermitcrabs.client.renderer.entity.model;
 import com.google.common.collect.ImmutableList;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import me.sv3r.cutehermitcrabs.common.entity.HermitCrabEntity;
 import me.sv3r.cutehermitcrabs.common.CuteHermitCrabs;
+import me.sv3r.cutehermitcrabs.common.entity.HermitCrabEntity;
 import net.minecraft.client.model.AgeableListModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
@@ -16,7 +16,8 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
-public class HermitCrabModel<T extends HermitCrabEntity> extends AgeableListModel<T> {
+public class HermitCrabModel<T extends HermitCrabEntity> extends AgeableListModel<T>
+{
     public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(CuteHermitCrabs.MOD_ID, "hermit_crab"), "main");
 
     private final ModelPart shell;
@@ -39,7 +40,8 @@ public class HermitCrabModel<T extends HermitCrabEntity> extends AgeableListMode
     private final float babyBodyScale;
     private final float bodyYOffset;
 
-    public HermitCrabModel(ModelPart root, boolean pScaleHead, float pBabyYHeadOffset, float pBabyZHeadOffset, float pBabyHeadScale, float pBabyBodyScale, float pBodyYOffset) {
+    public HermitCrabModel(ModelPart root, boolean pScaleHead, float pBabyYHeadOffset, float pBabyZHeadOffset, float pBabyHeadScale, float pBabyBodyScale, float pBodyYOffset)
+    {
         this.shell = root.getChild("shell");
         this.left_back_leg = root.getChild("left_back_leg");
         this.left_middle_leg = root.getChild("left_middle_leg");
@@ -61,7 +63,8 @@ public class HermitCrabModel<T extends HermitCrabEntity> extends AgeableListMode
         this.bodyYOffset = pBodyYOffset;
     }
 
-    public static LayerDefinition createBodyLayer() {
+    public static LayerDefinition createBodyLayer()
+    {
         MeshDefinition meshdefinition = new MeshDefinition();
         PartDefinition partdefinition = meshdefinition.getRoot();
 
@@ -83,7 +86,8 @@ public class HermitCrabModel<T extends HermitCrabEntity> extends AgeableListMode
     }
 
     @Override
-    public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+    public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch)
+    {
         this.shell.xRot = -0.10f;
         this.right_eye.zRot = -0.15f;
         this.left_eye.zRot = 0.15f;
@@ -139,21 +143,24 @@ public class HermitCrabModel<T extends HermitCrabEntity> extends AgeableListMode
     }
 
     @Override
-    public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+    public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha)
+    {
         if (this.young)
         {
             this.shell.visible = false;
 
             poseStack.pushPose();
 
-            if (this.scaleHead) {
+            if (this.scaleHead)
+            {
                 float f = 1.5F / this.babyHeadScale;
                 poseStack.scale(f, f, f);
             }
 
             poseStack.translate(0.0D, this.babyYHeadOffset / 16.0F, this.babyZHeadOffset / 16.0F);
 
-            this.headParts().forEach((part) -> {
+            this.headParts().forEach((part) ->
+            {
                 part.render(poseStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
             });
 
@@ -163,35 +170,39 @@ public class HermitCrabModel<T extends HermitCrabEntity> extends AgeableListMode
             float f1 = 1.0F / this.babyBodyScale;
 
             poseStack.scale(f1, f1, f1);
-            poseStack.translate(0.0D, (double)(this.bodyYOffset / 16.0F), 0.0D);
+            poseStack.translate(0.0D, (double) (this.bodyYOffset / 16.0F), 0.0D);
 
-            this.bodyParts().forEach((part) -> {
+            this.bodyParts().forEach((part) ->
+            {
                 part.render(poseStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
             });
 
             poseStack.popPose();
-        }
-        else
+        } else
         {
             this.shell.visible = true;
 
-            this.headParts().forEach((part) -> {
+            this.headParts().forEach((part) ->
+            {
                 part.render(poseStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
             });
 
-            this.bodyParts().forEach((part) -> {
+            this.bodyParts().forEach((part) ->
+            {
                 part.render(poseStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
             });
         }
     }
 
     @Override
-    protected Iterable<ModelPart> headParts() {
+    protected Iterable<ModelPart> headParts()
+    {
         return ImmutableList.of(this.left_eye, this.right_eye);
     }
 
     @Override
-    protected Iterable<ModelPart> bodyParts() {
+    protected Iterable<ModelPart> bodyParts()
+    {
         return ImmutableList.of(
                 this.body,
                 this.shell,
