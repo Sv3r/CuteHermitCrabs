@@ -1,9 +1,9 @@
 package me.sv3r.cutehermitcrabs.common.entity;
 
 import me.sv3r.cutehermitcrabs.common.CuteHermitCrabs;
-import me.sv3r.cutehermitcrabs.common.registry.ModEntityTypes;
-import me.sv3r.cutehermitcrabs.common.registry.ModItems;
-import me.sv3r.cutehermitcrabs.common.registry.ModSounds;
+import me.sv3r.cutehermitcrabs.common.registry.CHCEntityRegistry;
+import me.sv3r.cutehermitcrabs.common.registry.CHCItemRegistry;
+import me.sv3r.cutehermitcrabs.common.registry.CHCSoundRegistry;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -17,7 +17,10 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.AgeableMob;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
@@ -28,7 +31,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.ServerLevelAccessor;
 import org.jetbrains.annotations.Nullable;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -36,38 +39,45 @@ import java.util.Random;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
-public class HermitCrabEntity extends Animal implements Bucketable {
+public class HermitCrabEntity extends Animal implements Bucketable
+{
     private static final Ingredient FOOD_ITEMS = Ingredient.of(Items.SEAGRASS, Items.KELP);
     private static final EntityDataAccessor<Boolean> FROM_BUCKET = SynchedEntityData.defineId(HermitCrabEntity.class, EntityDataSerializers.BOOLEAN);
 
-    public HermitCrabEntity(EntityType<? extends Animal> entityType, Level level) {
+    public HermitCrabEntity(EntityType<? extends Animal> entityType, Level level)
+    {
         super(entityType, level);
     }
 
-    public static AttributeSupplier.Builder createAttributes() {
+    public static AttributeSupplier.Builder createAttributes()
+    {
         return Mob.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 20.0D)
                 .add(Attributes.MOVEMENT_SPEED, 0.25D);
     }
 
     @Override
-    public void addAdditionalSaveData(CompoundTag compoundTag) {
+    public void addAdditionalSaveData(CompoundTag compoundTag)
+    {
         compoundTag.putBoolean("FromBucket", this.fromBucket());
     }
 
     @Override
-    public void readAdditionalSaveData(CompoundTag compoundTag) {
+    public void readAdditionalSaveData(CompoundTag compoundTag)
+    {
         this.setFromBucket(compoundTag.getBoolean("FromBucket"));
     }
 
     @Override
-    protected void defineSynchedData() {
+    protected void defineSynchedData()
+    {
         super.defineSynchedData();
         this.entityData.define(FROM_BUCKET, false);
     }
 
     @Override
-    protected void registerGoals() {
+    protected void registerGoals()
+    {
         super.registerGoals();
         this.goalSelector.addGoal(0, new PanicGoal(this, 1.00D));
         this.goalSelector.addGoal(1, new BreedGoal(this, 0.75D));
@@ -78,86 +88,110 @@ public class HermitCrabEntity extends Animal implements Bucketable {
     }
 
     @Override
-    public boolean isFood(ItemStack itemStack) {
+    public boolean isFood(ItemStack itemStack)
+    {
         return FOOD_ITEMS.test(itemStack);
     }
 
     @Nullable
     @Override
-    public AgeableMob getBreedOffspring(ServerLevel serverLevel, AgeableMob ageableMob) {
-        return ModEntityTypes.HERMIT_CRAB.get().create(serverLevel);
+    public AgeableMob getBreedOffspring(ServerLevel serverLevel, AgeableMob ageableMob)
+    {
+        return CHCEntityRegistry.HERMIT_CRAB.get().create(serverLevel);
     }
 
     @Override
-    protected ResourceLocation getDefaultLootTable() {
+    protected ResourceLocation getDefaultLootTable()
+    {
         return new ResourceLocation(CuteHermitCrabs.MOD_ID, "entities/hermit_crab");
     }
 
-    public static boolean canSpawn(EntityType<HermitCrabEntity> entityType, LevelAccessor levelAccessor,
-                                   MobSpawnType spawnType, BlockPos blockPos, Random random) {
-        return Mob.checkMobSpawnRules(entityType, levelAccessor, spawnType, blockPos, random);
+    public static boolean checkHermitCrabSpawnRules(EntityType<HermitCrabEntity> entityType, ServerLevelAccessor serverLevelAccessor,
+                                                    MobSpawnType spawnType, BlockPos blockPos, Random random)
+    {
+        return serverLevelAccessor.getBlockState(blockPos.below()).is(CuteHermitCrabs.Tags.HERMIT_CRAB_SPAWNABLE_BLOCKS) && isBrightEnoughToSpawn(serverLevelAccessor, blockPos);
     }
 
     @Override
-    public boolean canBreatheUnderwater() {
+    public boolean canBreatheUnderwater()
+    {
         return true;
     }
 
     @Override
-    public boolean isPushedByFluid() {
+    public boolean isPushedByFluid()
+    {
         return false;
     }
 
     @Override
-    public ItemStack getBucketItemStack() {
-        return new ItemStack(ModItems.BUCKET_OF_HERMIT_CRAB.get());
+    public ItemStack getBucketItemStack()
+    {
+        return new ItemStack(CHCItemRegistry.BUCKET_OF_HERMIT_CRAB.get());
     }
 
     @Override
-    public boolean fromBucket() {
+    public boolean fromBucket()
+    {
         return this.entityData.get(FROM_BUCKET);
     }
 
     @Override
-    public void setFromBucket(boolean fromBucket) {
+    public void setFromBucket(boolean fromBucket)
+    {
         this.entityData.set(FROM_BUCKET, fromBucket);
     }
 
     @Override
-    public void saveToBucketTag(ItemStack itemStack) {
+    public void saveToBucketTag(ItemStack itemStack)
+    {
         Bucketable.saveDefaultDataToBucketTag(this, itemStack);
         CompoundTag compoundtag = itemStack.getOrCreateTag();
         compoundtag.putInt("Age", this.getAge());
-    }
-
-    @Override
-    public void loadFromBucketTag(CompoundTag compoundTag) {
-        Bucketable.loadDefaultDataFromBucketTag(this, compoundTag);
-
-        if (compoundTag.contains("Age")) {
-            this.setAge(compoundTag.getInt("Age"));
+        compoundtag.putFloat("Health", this.getHealth());
+        if (this.hasCustomName())
+        {
+            itemStack.setHoverName(this.getCustomName());
         }
     }
 
     @Override
-    public InteractionResult mobInteract(Player player, InteractionHand interactionHand) {
+    public void loadFromBucketTag(CompoundTag compoundTag)
+    {
+        Bucketable.loadDefaultDataFromBucketTag(this, compoundTag);
+        if (compoundTag.contains("Age"))
+        {
+            this.setAge(compoundTag.getInt("Age"));
+        }
+        if (compoundTag.contains("Health"))
+        {
+            this.setHealth(compoundTag.getFloat("Health"));
+        }
+    }
+
+    @Override
+    public InteractionResult mobInteract(Player player, InteractionHand interactionHand)
+    {
         return Bucketable.bucketMobPickup(player, interactionHand, this).orElse(super.mobInteract(player, interactionHand));
     }
 
     @Nullable
     @Override
-    protected SoundEvent getHurtSound(DamageSource pDamageSource) {
-        return ModSounds.HERMIT_CRAB_HURT.get();
+    protected SoundEvent getHurtSound(DamageSource pDamageSource)
+    {
+        return CHCSoundRegistry.HERMIT_CRAB_HURT.get();
     }
 
     @Nullable
     @Override
-    protected SoundEvent getDeathSound() {
-        return ModSounds.HERMIT_CRAB_HURT.get();
+    protected SoundEvent getDeathSound()
+    {
+        return CHCSoundRegistry.HERMIT_CRAB_HURT.get();
     }
 
     @Override
-    public SoundEvent getPickupSound() {
+    public SoundEvent getPickupSound()
+    {
         return SoundEvents.BUCKET_FILL_FISH;
     }
 }

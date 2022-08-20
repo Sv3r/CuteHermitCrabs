@@ -1,7 +1,8 @@
 package me.sv3r.cutehermitcrabs.common.event;
 
 import me.sv3r.cutehermitcrabs.common.CuteHermitCrabs;
-import me.sv3r.cutehermitcrabs.common.registry.ModEntityTypes;
+import me.sv3r.cutehermitcrabs.common.config.CHCConfig;
+import me.sv3r.cutehermitcrabs.common.registry.CHCEntityRegistry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.level.biome.MobSpawnSettings;
@@ -20,7 +21,7 @@ public class ForgeEventBusEvents
     {
         if (Objects.equals(event.getName(), new ResourceLocation("minecraft:beach")))
         {
-            event.getSpawns().addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(ModEntityTypes.HERMIT_CRAB.get(), 10, 2, 6));
+            event.getSpawns().addSpawn(MobCategory.CREATURE, new MobSpawnSettings.SpawnerData(CHCEntityRegistry.HERMIT_CRAB.get(), CHCConfig.SPAWN_WEIGHT.get(), CHCConfig.MIN_GROUP_SIZE.get(), CHCConfig.MAX_GROUP_SIZE.get()));
         }
     }
 }
