@@ -5,6 +5,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import me.sv3r.cutehermitcrabs.common.CuteHermitCrabs;
 import me.sv3r.cutehermitcrabs.common.entity.HermitCrabEntity;
+import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.client.model.AgeableListModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
@@ -15,7 +16,11 @@ import net.minecraft.util.Mth;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 @OnlyIn(Dist.CLIENT)
+@ParametersAreNonnullByDefault
+@MethodsReturnNonnullByDefault
 public class HermitCrabModel<T extends HermitCrabEntity> extends AgeableListModel<T>
 {
     public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(CuteHermitCrabs.MOD_ID, "hermit_crab"), "main");
@@ -160,9 +165,7 @@ public class HermitCrabModel<T extends HermitCrabEntity> extends AgeableListMode
             poseStack.translate(0.0D, this.babyYHeadOffset / 16.0F, this.babyZHeadOffset / 16.0F);
 
             this.headParts().forEach((part) ->
-            {
-                part.render(poseStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
-            });
+                    part.render(poseStack, buffer, packedLight, packedOverlay, red, green, blue, alpha));
 
             poseStack.popPose();
             poseStack.pushPose();
@@ -170,12 +173,10 @@ public class HermitCrabModel<T extends HermitCrabEntity> extends AgeableListMode
             float f1 = 1.0F / this.babyBodyScale;
 
             poseStack.scale(f1, f1, f1);
-            poseStack.translate(0.0D, (double) (this.bodyYOffset / 16.0F), 0.0D);
+            poseStack.translate(0.0D, this.bodyYOffset / 16.0F, 0.0D);
 
             this.bodyParts().forEach((part) ->
-            {
-                part.render(poseStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
-            });
+                    part.render(poseStack, buffer, packedLight, packedOverlay, red, green, blue, alpha));
 
             poseStack.popPose();
         } else
@@ -183,14 +184,10 @@ public class HermitCrabModel<T extends HermitCrabEntity> extends AgeableListMode
             this.shell.visible = true;
 
             this.headParts().forEach((part) ->
-            {
-                part.render(poseStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
-            });
+                    part.render(poseStack, buffer, packedLight, packedOverlay, red, green, blue, alpha));
 
             this.bodyParts().forEach((part) ->
-            {
-                part.render(poseStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
-            });
+                    part.render(poseStack, buffer, packedLight, packedOverlay, red, green, blue, alpha));
         }
     }
 
