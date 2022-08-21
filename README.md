@@ -1,7 +1,7 @@
-![](https://i.imgur.com/LB6JOmJ.png)
+![](https://i.imgur.com/snWcBR9.png)
 
 <a href="https://www.curseforge.com/minecraft/mc-mods/cute-hermit-crabs">
-  <img src="https://cf.way2muchnoise.eu/full_414504_downloads.svg" alt="Curseforge Downloads">
+  <img src="https://tinyurl.com/2p8utmy9" alt="Curseforge Downloads">
 </a>
 
 ### About
