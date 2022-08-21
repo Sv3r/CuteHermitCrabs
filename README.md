@@ -5,7 +5,7 @@
 </a>
 
 ### About
-Cute Hermit Crabs is a mod that adds hermit crabs and some other stuff to Minecraft!
+Cute Hermit Crabs is a mod that adds hermit crabs and other related features.
 
 ### Contributing
 If you want to contribute with the mod because you found a mistake, something inefficient or you have a suggestion, feel free to open an issue or pull request!
