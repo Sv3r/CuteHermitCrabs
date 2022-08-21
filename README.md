@@ -4,6 +4,10 @@
   <img src="https://tinyurl.com/2p8utmy9" alt="Curseforge Downloads">
 </a>
 
+<a href="https://github.com/ZestyBlaze/Cute-Hermit-Crabs-Fabric">
+  <img src="https://tinyurl.com/bdesjacz" alt="Fabric Version">
+</a>
+
 ### About
 Cute Hermit Crabs is a mod that adds hermit crabs and other related features.
 
