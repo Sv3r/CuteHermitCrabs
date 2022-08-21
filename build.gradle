@@ -18,21 +18,21 @@ plugins {
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: 'org.parchmentmc.librarian.forgegradle'
 
-version = "${mc_version}-${mod_version}"
-group = 'me.sv3r.cutehermitcrabs'
-archivesBaseName = 'CuteHermitCrabs'
+version = "${mod_version}-${mc_version}"
+group = 'me.sv3r'
+archivesBaseName = "${mod_id}"
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 minecraft {
-    mappings channel: 'official', version: '1.19'
+    mappings channel: "${mappings_channel}", version: "${mappings_version}"
 
     runs {
         client {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-            property 'forge.enabledGameTestNamespaces', 'cutehermitcrabs'
+            property 'forge.enabledGameTestNamespaces', "${mod_id}"
 
             mods {
                 cutehermitcrabs {
@@ -45,8 +45,32 @@ minecraft {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-            property 'forge.enabledGameTestNamespaces', 'cutehermitcrabs'
+            property 'forge.enabledGameTestNamespaces', "${mod_id}"
 
+            mods {
+                cutehermitcrabs {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        gameTestServer {
+            workingDirectory project.file('run')
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+            property 'forge.enabledGameTestNamespaces', "${mod_id}"
+            mods {
+                cutehermitcrabs {
+                    source sourceSets.main
+                }
+            }
+        }
+
+        data {
+            workingDirectory project.file('run')
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+            args '--mod', "${mod_id}", '--all', '--output', file('src/generated/resources/')
             mods {
                 cutehermitcrabs {
                     source sourceSets.main
@@ -65,12 +89,12 @@ dependencies {
 jar {
     manifest {
         attributes([
-                "Specification-Title"     : "cutehermitcrabs",
-                "Specification-Vendor"    : "sv3r",
+                "Specification-Title"     : "${mod_name}",
+                "Specification-Vendor"    : "${mod_author}",
                 "Specification-Version"   : "1",
                 "Implementation-Title"    : project.name,
                 "Implementation-Version"  : project.jar.archiveVersion,
-                "Implementation-Vendor"   : "sv3r",
+                "Implementation-Vendor"   : "${mod_author}",
                 "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
@@ -78,19 +102,6 @@ jar {
 
 jar.finalizedBy('reobfJar')
 
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            artifact jar
-        }
-    }
-    repositories {
-        maven {
-            url "file://${project.projectDir}/mcmodsrepo"
-        }
-    }
-}
-
 tasks.withType(JavaCompile).configureEach {
-    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+    options.encoding = 'UTF-8'
 }
