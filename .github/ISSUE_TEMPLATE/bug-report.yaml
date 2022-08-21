@@ -1,0 +1,43 @@
+name: Bug Report
+description: Submit a bug report
+title: "[BUG]: "
+labels: [ "bug" ]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## **Before submitting, please make sure that:**
+        * You are using the correct Forge & Minecraft version to run the mod version you are using.
+  - type: input
+    id: mod-version
+    attributes:
+      label: Mod Version
+      description: What version of the mod are you using?
+      placeholder: ex. 1.0.0
+    validations:
+      required: true
+  - type: input
+    id: forge-version
+    attributes:
+      label: Forge Version
+      description: What version of Forge are you using?
+      placeholder: ex. 41.1.0
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Please give a good explanation of what happened. You can link relevant images/files about the issue.
+      placeholder: Tell us what you see!
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: latest.log
+      description: Please upload your latest.log file directly here or use https://gist.github.com/ and copy & paste the link here.
+      placeholder: Drag and drop your latest.log file here or link it with https://gist.github.com/.
+    validations:
+      required: true
+
