@@ -7,7 +7,8 @@ body:
     attributes:
       value: |
         ## **Before submitting, please make sure that:**
-        * You are using the correct Forge & Minecraft version to run the mod version you are using.
+        * You are using the latest mod version for your chosen Minecraft version.
+        * You are using the correct Forge version to run the chosen mod version.
   - type: input
     id: mod-version
     attributes:
