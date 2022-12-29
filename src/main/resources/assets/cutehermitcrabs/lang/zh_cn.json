@@ -1,0 +1,24 @@
+{
+  "item.cutehermitcrabs.hermit_crab_shell_piece": "寄居蟹壳片",
+  "item.cutehermitcrabs.hermit_crab_shell": "寄居蟹壳",
+  "item.cutehermitcrabs.hermit_crab_spawn_egg": "寄居蟹刷怪蛋",
+  "item.cutehermitcrabs.bucket_of_hermit_crab": "寄居蟹桶",
+
+  "item.cutehermitcrabs.raw_hermit_crab": "生寄居蟹",
+  "item.cutehermitcrabs.cooked_hermit_crab": "熟寄居蟹",
+
+  "itemGroup.cutehermitcrabs.cute_hermit_crabs_tab": "可爱寄居蟹",
+
+  "item.modifiers.sneaking": "潜行时:",
+  "attribute.modifier.plus": "+",
+
+  "sounds.cutehermitcrabs.hermit_crab_hurt": "寄居蟹：受伤",
+
+  "entity.cutehermitcrabs.hermit_crab": "寄居蟹",
+
+  "cutehermitcrabs.midnightconfig.title": "可爱寄居蟹",
+  "cutehermitcrabs.midnightconfig.resistanceLevel": "寄居蟹壳抗性水平",
+  "cutehermitcrabs.midnightconfig.spawnWeight": "寄居蟹生成权重",
+  "cutehermitcrabs.midnightconfig.minGroupSize": "寄居蟹最小群体大小",
+  "cutehermitcrabs.midnightconfig.maxGroupSize": "寄居蟹最大群体大小"
+}
