@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://i.imgur.com/gEBUetc.png" alt="Cute Hermit Crabs Logo">
+  <img src="https://i.imgur.com/De4LMnW.png" alt="Cute Hermit Crabs Logo">
 </p>
 
 <p align="center">
@@ -12,19 +12,19 @@
 </p>
 
 <p align="center">
-  <img src="https://i.imgur.com/B5TDK4t.png" alt="Cute Hermit Crabs Logo">
+  <img src="https://i.imgur.com/VZbCO47.png" alt="Divider">
 </p>
 
 ### About
 Cute Hermit Crabs is a mod that adds hermit crabs and other related features.
 
 <p align="center">
-  <img src="https://i.imgur.com/B5TDK4t.png" alt="Cute Hermit Crabs Logo">
+  <img src="https://i.imgur.com/VZbCO47.png" alt="Divider">
 </p>
 
 ### Contributing
 If you want to contribute with the mod because you found a mistake, something inefficient or you have a suggestion, feel free to open an issue or pull request!
 
 <p align="center">
-  <img src="https://i.imgur.com/B5TDK4t.png" alt="Cute Hermit Crabs Logo">
+  <img src="https://i.imgur.com/VZbCO47.png" alt="Divider">
 </p>
